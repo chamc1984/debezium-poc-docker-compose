@@ -1,0 +1,23 @@
+{
+  "name": "sample-connector",
+  "config": {
+    "database.hostname": "postgres",
+    "database.port": "5432",
+    "database.user": "sample",
+    "database.password": "password",
+    "database.dbname": "source_db",
+    "topic.prefix": "my_topic",
+    "table.include.list": "public.sample",
+    "publication.name": "my_publication",
+    "slot.name": "my_slot",
+    "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+    "plugin.name": "pgoutput",
+    "tasks.max": "1",
+    "key.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "key.converter.schemas.enable": "false",
+    "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+    "value.converter.schemas.enable": "false",
+    "truncate.handling.mode": "include",
+    "tombstones.on.delete": "false"
+  }
+}

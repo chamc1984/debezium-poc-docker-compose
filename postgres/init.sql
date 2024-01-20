@@ -1,0 +1,13 @@
+CREATE ROLE sample WITH PASSWORD 'password' LOGIN REPLICATION;
+CREATE DATABASE source_db WITH OWNER sample;
+GRANT ALL PRIVILEGES ON DATABASE source_db TO sample;
+
+\c source_db
+
+CREATE TABLE sample(
+  id INT NOT NULL,
+  value VARCHAR(8),
+  PRIMARY KEY (id)
+);
+
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO sample;
